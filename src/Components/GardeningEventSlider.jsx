@@ -30,7 +30,7 @@ const GardeningEventSlider = () => {
   ];
 
   return (
-    <div className="w-full max-w-6xl mx-auto my-10">
+    <div className="w-[90%]  mx-auto my-10 rounded-3xl">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         spaceBetween={30}
@@ -42,14 +42,14 @@ const GardeningEventSlider = () => {
         className="rounded-xl"
       >
         {events.map((event, index) => (
-          <SwiperSlide key={index}>
-            <div className="bg-base-100 h-[450px] flex flex-col md:flex-row items-center justify-center rounded-xl shadow-xl overflow-hidden">
+          <SwiperSlide  key={index}>
+            <div className="bg-transparent w-full h-full flex flex-col md:flex-row items-center justify-center rounded-xl shadow-xl overflow-hidden">
               <img
                 src={event.image}
                 alt={event.title}
-                className="h-full w-full md:w-1/2 object-cover"
+                className="h-full md:h-[580px] w-full md:w-1/2 object-cover"
               />
-              <div className="p-8 md:w-1/2 text-center md:text-left bg-green-50">
+              <div className="p-8 md:px-8 md:py-30 md:w-1/2 md:h-[580px] text-center md:text-left bg-green-50">
                 <h2 className="text-3xl font-bold mb-2 text-green-800">
                   {event.title}
                 </h2>

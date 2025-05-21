@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar  shadow-md px-4">
+    <div className="navbar sticky top-0 z-50 bg-base-100  shadow-md px-4">
       {/* Start */}
       
       <div className="flex-1 ">

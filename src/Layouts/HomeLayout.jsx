@@ -3,13 +3,20 @@ import { Outlet } from 'react-router';
 import ThemeToggle from '../Components/ThemeToggle';
 import Navbar from '../Components/Navbar';
 import GardeningEventSlider from '../Components/GardeningEventSlider';
+import ActiveUser from '../Components/ActiveUser';
+import Video from '../Components/Video';
+import BouncingTex from '../Components/BouncingText/BouncingTex';
 
 const HomeLayout = () => {
     return (
         <div>
+
            <Navbar></Navbar>
+           <Video></Video>
            <GardeningEventSlider></GardeningEventSlider>
-            <h1>This is Home Layout</h1>
+           <BouncingTex></BouncingTex>
+          
+            
             <Outlet></Outlet>
         </div>
     );
