@@ -28,7 +28,7 @@ const Navbar = () => {
           <img src={logo} alt="" className="absolute w-12 opacity-70 z-0" />
 
           {/* Text in front */}
-          <span className="mt-3 ml-8 relative z-10 text-xl  md:text-3xl text-[#1d611d]">
+          <span className="mt-3 ml-8 relative z-10 text-xl  md:text-3xl text-primary">
             ERDENT VIBE
           </span>
         </a>
@@ -94,7 +94,7 @@ const Navbar = () => {
               </div>
               {user1.displayName}
             </li>
-            <Link className="btn btn-primary px-10">
+            <Link  className="btn btn-primary px-10">
               <FaSignOutAlt className="mr-2" /> Logout
             </Link>
           </ul>
@@ -116,7 +116,7 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-            <Link onClick={handleLogout} className="btn btn-secondary px-10">
+            <Link onClick={handleLogout} className="btn btn-primary px-10">
               <FaSignOutAlt className="mr-2" /> Logout
             </Link>
           </>
@@ -124,7 +124,7 @@ const Navbar = () => {
           <>
             <FaUserCircle className="text-4xl" />
 
-            <Link className="btn btn-primary px-10" to={'/Auth/Login'}>
+            <Link className="btn btn-primary px-10" to={'/authentication/login'}>
               <FaSignInAlt className="mr-2" /> Login
             </Link>
           </>

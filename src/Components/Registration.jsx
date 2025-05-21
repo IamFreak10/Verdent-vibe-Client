@@ -3,12 +3,13 @@ import { Link, useNavigate } from 'react-router';
 
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import Authcontext from '../Contexts/Authcontext';
+import Swal from 'sweetalert2';
 
 const Registration = () => {
   const { createUser, user, setUser, logOut } = use(Authcontext);
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
+  console.log(errors);
   const handlesubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -32,15 +33,24 @@ const Registration = () => {
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
+        setErrors('');
         // console.log(user);
         setUser(user);
         logOut();
 
         // ...
       })
+      .then(() => {
+        Swal.fire({
+          title: 'Registration Success!',
+          icon: 'success',
+          draggable: true,
+        });
+      })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setErrors(errorMessage);
         // ..
       });
   };
@@ -96,11 +106,11 @@ const Registration = () => {
             {/* Show individual errors */}
             {errors.length > 0 && (
               <div className="mt-2">
-                {errors.map((err, index) => (
-                  <p key={index} className="text-red-500 text-sm">
-                    • {err}
+                
+                  <p className="text-red-500 text-sm">
+                    {errors}
                   </p>
-                ))}
+               
               </div>
             )}
 
@@ -141,7 +151,7 @@ const Registration = () => {
         </button>
         <p className="text-center mb-5">
           Already have an account?
-          <Link to={'/authentication'}>
+          <Link to={'/authentication/login'}>
             <span className="text-blue-400 ml-1">Login</span>
           </Link>
         </p>

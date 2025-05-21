@@ -3,7 +3,7 @@ import './Bouncing.css';
 import ActiveUser from '../ActiveUser';
 const BouncingTex = () => {
   return (
-    <div className="text-center">
+    <div className="text-center ">
       <h1 className="text-2xl md:text-6xl text-[#1d611d]">
         <span className="bouncing-text">A</span>
         <span className="bouncing-text">C</span>
@@ -22,7 +22,7 @@ const BouncingTex = () => {
         <span className="bouncing-text">R</span>
         <span className="bouncing-text">S</span>
       </h1>
-      <ActiveUser></ActiveUser>
+      <ActiveUser ></ActiveUser>
     </div>
   );
 };

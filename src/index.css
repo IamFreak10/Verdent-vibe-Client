@@ -10,11 +10,13 @@
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #375b3b;   /* Dark green */
+  --color-primary: #1d611d;   /* Dark green */
   --color-secondary: #4caf50; /* Medium green */
   --color-base-200: #d8f5d8;  /* Light minty green */
   --color-base-300: #b7e4b7;  /* Soft pastel green */
   --color-accent: #6b8e23;    /* Olive green */
 }
-
+a.active {
+  color: #1d611d;
+}
 

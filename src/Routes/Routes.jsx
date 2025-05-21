@@ -11,9 +11,8 @@ const router = createBrowserRouter([
     path: '/',
     element: <HomeLayout></HomeLayout>,
     children: [
-      
       {
-       index:true,
+        index: true,
         element: <Gardeners></Gardeners>,
       },
     ],
@@ -22,16 +21,15 @@ const router = createBrowserRouter([
     path: '/authentication',
     element: <AuthLayout></AuthLayout>,
     children: [
-        {
-            index:true,
-            element:<LoginLayout></LoginLayout>
-        }
-        ,{
-            path:'registration',
-            element:<Registration></Registration>
-        }
-    ]
-
-  }
+      {
+        path: 'login',
+        element: <LoginLayout></LoginLayout>,
+      },
+      {
+        path: 'registration',
+        element: <Registration></Registration>,
+      },
+    ],
+  },
 ]);
 export default router;
