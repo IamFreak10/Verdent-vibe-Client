@@ -3,9 +3,17 @@ import { GiCircularSawblade } from 'react-icons/gi';
 import { Link, NavLink } from 'react-router';
 import ThemeToggle from './ThemeToggle';
 import logo from '../assets/abstract-removebg-preview.png';
+import { use } from 'react';
+import Authcontext from '../Contexts/Authcontext';
 const Navbar = () => {
-  // Static mock user (not dynamic)
-  const user = {
+  const { user, logOut } = use(Authcontext);
+    console.log(user);
+  const handleLogout=()=>{
+    logOut()
+    .then()
+    .catch()
+  }
+  const user1 = {
     displayName: 'John Doe',
     photoURL: 'https://i.pravatar.cc/150?img=3',
   };
@@ -13,7 +21,7 @@ const Navbar = () => {
   return (
     <div className="navbar sticky top-0 z-50 bg-base-100  shadow-md px-4">
       {/* Start */}
-      
+
       <div className="flex-1 ">
         <a className="   relative flex justify-start">
           {/* Image behind text */}
@@ -81,10 +89,10 @@ const Navbar = () => {
             <li className="flex items-center">
               <div className="avatar mr-2">
                 <div className="w-6 rounded-full">
-                  <img src={user.photoURL} alt="User" />
+                  <img src={user1.photoURL} alt="User" />
                 </div>
               </div>
-              {user.displayName}
+              {user1.displayName}
             </li>
             <Link className="btn btn-primary px-10">
               <FaSignOutAlt className="mr-2" /> Logout
@@ -95,16 +103,32 @@ const Navbar = () => {
 
       {/* Desktop Right Side */}
       <div className="hidden lg:flex items-center gap-4 ml-4">
-        <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
-          <div className="avatar">
-            <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-              <img src={user.photoURL} alt="User" />
+      
+        {user ? (
+          <>
+            <div
+              className="tooltip tooltip-bottom"
+              data-tip={user?.displayName}
+            >
+              <div className="avatar">
+                <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src={user?.photoURL} alt="User" />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <Link className="btn btn-secondary px-10">
-          <FaSignOutAlt className="mr-2" /> Logout
-        </Link>
+            <Link onClick={handleLogout} className="btn btn-secondary px-10">
+              <FaSignOutAlt className="mr-2" /> Logout
+            </Link>
+          </>
+        ) : (
+          <>
+            <FaUserCircle className="text-4xl" />
+
+            <Link className="btn btn-primary px-10" to={'/Auth/Login'}>
+              <FaSignInAlt className="mr-2" /> Login
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
