@@ -9,6 +9,8 @@ import PrivateRoute from './PrivateRoute';
 import ShareGardenTip from '../Components/ShareGardenTip';
 import BrowseTip from '../Layouts/BrowseTip';
 import TipsdetailsLayout from '../Layouts/TipsdetailsLayout';
+import MytipLayout from '../Layouts/MytipLayout';
+import TipsUpdateLayout from '../Layouts/TipsUpdateLayout';
 
 const router = createBrowserRouter([
   {
@@ -36,19 +38,41 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path:'/Share-Garden-tip',
-    element:<PrivateRoute>
-      <ShareGardenTip></ShareGardenTip>
-    </PrivateRoute>
+    path: '/Share-Garden-tip',
+    element: (
+      <PrivateRoute>
+        <ShareGardenTip></ShareGardenTip>
+      </PrivateRoute>
+    ),
   },
   {
-    path:'/Browse-Garden-tip',
-   element:<BrowseTip></BrowseTip>
-  }
-  ,{
-    path:'/tip/:id',
-    loader: ({params})=>fetch(`http://localhost:3000/tips/${params.id}`),
-    element:<PrivateRoute><TipsdetailsLayout></TipsdetailsLayout></PrivateRoute>
+    path: '/Browse-Garden-tip',
+    element: <BrowseTip></BrowseTip>,
   },
+  {
+    path: '/tip/:id',
+    loader: ({ params }) => fetch(`http://localhost:3000/tips/${params.id}`),
+    element: (
+      <PrivateRoute>
+        <TipsdetailsLayout></TipsdetailsLayout>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: '/My-Tips-page',
+    element: (
+      <PrivateRoute>
+        <MytipLayout></MytipLayout>
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: '/update-tip/:id',
+    loader:({params})=>fetch(`http://localhost:3000/tips/${params.id}`),
+    element: <PrivateRoute>
+      <TipsUpdateLayout></TipsUpdateLayout>
+    </PrivateRoute>
+  },
+  
 ]);
 export default router;

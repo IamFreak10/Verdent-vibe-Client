@@ -6,7 +6,7 @@ import Authcontext from '../Contexts/Authcontext';
 import Swal from 'sweetalert2';
 
 const Registration = () => {
-  const { createUser, user, setUser, logOut } = use(Authcontext);
+  const { createUser, user, setUser, logOut, updateUser } = use(Authcontext);
   const [errors, setErrors] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   console.log(errors);
@@ -32,11 +32,19 @@ const Registration = () => {
     createUser(email, password)
       .then((userCredential) => {
         // Signed up
-        const user = userCredential.user;
-        setErrors('');
-        // console.log(user);
-        setUser(user);
-        logOut();
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            const user = userCredential.user;
+
+            setUser(user);
+            logOut();
+          })
+          .catch(() => {});
+        // const user = userCredential.user;
+        // setErrors('');
+        // // console.log(user);
+        // setUser(user);
+        // logOut();
 
         // ...
       })
@@ -106,11 +114,7 @@ const Registration = () => {
             {/* Show individual errors */}
             {errors.length > 0 && (
               <div className="mt-2">
-                
-                  <p className="text-red-500 text-sm">
-                    {errors}
-                  </p>
-               
+                <p className="text-red-500 text-sm">{errors}</p>
               </div>
             )}
 
