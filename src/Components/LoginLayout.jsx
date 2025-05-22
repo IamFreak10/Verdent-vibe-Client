@@ -3,26 +3,35 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import Authcontext from '../Contexts/Authcontext';
 
 const LoginLayout = () => {
-  const { signIn } = use(Authcontext);
+  const { signIn, signInWithGoogle } = use(Authcontext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const [error, setError] = useState('');
-  
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     signIn(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
+      .then(() => {
+        setError('');
+        navigate(`${location?.state ? location.state : '/'}`);
       })
       .catch((error) => {
         setError(error.message);
-        console.log(error);
       });
   };
 
-  const handleGoogleLogin = () => {};
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then(() => {
+        setError('');
+        navigate(`${location?.state ? location.state : '/'}`);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
 
   return (
     <div className="flex justify-center min-h-screen items-center">

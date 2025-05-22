@@ -5,6 +5,10 @@ import Gardeners from '../Components/Gardeners';
 import AuthLayout from '../Layouts/AuthLayout';
 import LoginLayout from '../Components/LoginLayout';
 import Registration from '../Components/Registration';
+import PrivateRoute from './PrivateRoute';
+import ShareGardenTip from '../Components/ShareGardenTip';
+import BrowseTip from '../Layouts/BrowseTip';
+import TipsdetailsLayout from '../Layouts/TipsdetailsLayout';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +34,21 @@ const router = createBrowserRouter([
         element: <Registration></Registration>,
       },
     ],
+  },
+  {
+    path:'/Share-Garden-tip',
+    element:<PrivateRoute>
+      <ShareGardenTip></ShareGardenTip>
+    </PrivateRoute>
+  },
+  {
+    path:'/Browse-Garden-tip',
+   element:<BrowseTip></BrowseTip>
+  }
+  ,{
+    path:'/tip/:id',
+    loader: ({params})=>fetch(`http://localhost:3000/tips/${params.id}`),
+    element:<PrivateRoute><TipsdetailsLayout></TipsdetailsLayout></PrivateRoute>
   },
 ]);
 export default router;

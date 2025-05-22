@@ -7,15 +7,9 @@ import { use } from 'react';
 import Authcontext from '../Contexts/Authcontext';
 const Navbar = () => {
   const { user, logOut } = use(Authcontext);
-    console.log(user);
-  const handleLogout=()=>{
-    logOut()
-    .then()
-    .catch()
-  }
-  const user1 = {
-    displayName: 'John Doe',
-    photoURL: 'https://i.pravatar.cc/150?img=3',
+  console.log(user?.photoURL);
+  const handleLogout = () => {
+    logOut().then().catch();
   };
 
   return (
@@ -47,15 +41,15 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className="font-semibold hover:text-primary mr-2.5 p-3 rounded-xl"
-            to="/MyProfile"
+            to="/Share-Garden-tip"
           >
-            My Profile
+            Share a Garden Tip
           </NavLink>
           <NavLink
             className="font-semibold hover:text-primary mr-2.5 p-3 rounded-xl"
-            to="/PaidHelp"
+            to="/Browse-Garden-tip"
           >
-            Paid Help
+            Browse Tips
           </NavLink>
         </ul>
       </div>
@@ -83,18 +77,18 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/MyProfile">My Profile</NavLink>
+            <NavLink to="/Share-Garden-tip"> Share a Garden Tip</NavLink>
             <NavLink to="/PaidHelp">Paid Help</NavLink>
 
             <li className="flex items-center">
               <div className="avatar mr-2">
                 <div className="w-6 rounded-full">
-                  <img src={user1.photoURL} alt="User" />
+                  <img src={user?.photoURL} alt="User" />
                 </div>
               </div>
-              {user1.displayName}
+              {user?.displayName}
             </li>
-            <Link  className="btn btn-primary px-10">
+            <Link className="btn btn-primary px-10">
               <FaSignOutAlt className="mr-2" /> Logout
             </Link>
           </ul>
@@ -103,7 +97,6 @@ const Navbar = () => {
 
       {/* Desktop Right Side */}
       <div className="hidden lg:flex items-center gap-4 ml-4">
-      
         {user ? (
           <>
             <div
@@ -124,7 +117,10 @@ const Navbar = () => {
           <>
             <FaUserCircle className="text-4xl" />
 
-            <Link className="btn btn-primary px-10" to={'/authentication/login'}>
+            <Link
+              className="btn btn-primary px-10"
+              to={'/authentication/login'}
+            >
               <FaSignInAlt className="mr-2" /> Login
             </Link>
           </>
