@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export default function GardenOfTheMonth() {
   return (
@@ -34,7 +34,9 @@ export default function GardenOfTheMonth() {
       </section>
 
       {/* FAQ Section */}
-     <section className="bg-green-50/80 w-full   md:w-[40%]   rounded-2xl  shadow-md "><FAQSection /></section>
+      <section className="bg-green-50/80 w-full   md:w-[40%]   rounded-2xl  shadow-md ">
+        <FAQSection />
+      </section>
     </div>
   );
 }
@@ -44,16 +46,19 @@ function FAQSection() {
 
   const faqs = [
     {
-      question: "How can I nominate a garden?",
-      answer: "Click the 'Nominate Your Garden' button and fill out the form with details and photos.",
+      question: 'How can I nominate a garden?',
+      answer:
+        "To nominate a garden for our Garden of the Month feature, simply click the 'Nominate Your Garden' button on our website. You'll be prompted to fill out a form where you can provide detailed information about the garden, including its location, unique features, and any special care practices. Don’t forget to upload some high-quality photos to showcase its beauty! This helps our community and judges appreciate the garden fully.",
     },
     {
-      question: "Who chooses the Garden of the Month?",
-      answer: "Our panel of horticulturists and community members vote each month.",
+      question: 'Who chooses the Garden of the Month?',
+      answer:
+        'The Garden of the Month is selected by a dedicated panel consisting of expert horticulturists and passionate members of our gardening community. Each month, they carefully review all garden nominations based on criteria such as creativity, sustainability, plant health, and overall appeal. The voting process ensures a fair and thoughtful decision highlighting inspiring gardens.',
     },
     {
       question: "Can I nominate someone else's garden?",
-      answer: "Yes, just be sure to get their permission and provide accurate information.",
+      answer:
+        'Absolutely! You can nominate a garden even if it’s not your own. However, it’s important to get permission from the garden owner before submitting the nomination. Make sure to provide accurate and honest information about the garden to help us fairly evaluate it. This way, we celebrate great gardens while respecting the gardeners’ privacy and efforts.',
     },
   ];
 
@@ -62,7 +67,7 @@ function FAQSection() {
   };
 
   return (
-    <section className=" p-6 bg-green-50/80  rounded-2xl shadow-md my-10">
+    <section className=" p-6 bg-green-50/80  rounded-2xl shadow-md my-10 mb-10">
       <h2 className="text-2xl font-bold text-green-800 mb-4">
         🌼 Frequently Asked Questions
       </h2>

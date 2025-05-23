@@ -1,7 +1,8 @@
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
-import { FaGlobe } from "react-icons/fa";
-import { GiCircularSawblade } from "react-icons/gi";
-import { NavLink } from "react-router";
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { FaGlobe } from 'react-icons/fa';
+import { GiCircularSawblade } from 'react-icons/gi';
+import { NavLink } from 'react-router';
+import logo from '../assets/abstract-removebg-preview.png';
 
 const Footer = () => {
   const activeStyle = 'font-semibold underline text-secondary';
@@ -12,9 +13,15 @@ const Footer = () => {
         {/* Company Info */}
         <div>
           <div className="flex text-xl font-bold mb-2 items-center">
-            <span className="text-gray-600 font-bold text-xl">Verdent</span>
-            <GiCircularSawblade className="text-3xl text-blue-500 animate-spin mx-1" />
-            <span className="text-secondary text-xl">Vibe</span>
+            <a className="   relative flex justify-start">
+              {/* Image behind text */}
+              <img src={logo} alt="" className="absolute w-12  z-0" />
+
+              {/* Text in front */}
+              <span className="mt-3 ml-8 relative z-10 text-xl  md:text-3xl text-primary">
+                ERDENT VIBE
+              </span>
+            </a>
           </div>
           <p className="text-sm text-[#22461b] leading-relaxed">
             Your community for gardening tips, plant care, local gardeners, and
