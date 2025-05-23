@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 export default function GardenOfTheMonth() {
   return (
-    <div className="max-w-[90%] mx-auto block  md:flex gap-x-4">
-      <section className="p-16 h-5xl bg-green-50/80   md:w-[60%] rounded-2xl shadow-md my-10">
-        <h2 className="text-3xl font-bold text-green-800 mb-4">
+    <div className="max-w-[90%] mx-auto block md:flex gap-x-4">
+      <section className="p-16 h-5xl bg-green-50/80  md:w-[60%] rounded-2xl shadow-md my-10">
+        <h2 className="text-3xl font-bold text-[#22461b] dark:text-[#22461b] mb-4">
           🌿 Garden of the Month
         </h2>
         <div className="flex flex-col md:flex-row items-center gap-6">
@@ -14,10 +14,10 @@ export default function GardenOfTheMonth() {
             className="w-full md:w-1/2 rounded-xl shadow-md"
           />
           <div>
-            <p className="text-lg font-medium mb-2">
+            <p className="text-lg font-medium mb-2 text-[#22461b] dark:text-[#22461b]">
               🌸 <span className="font-bold">Lily Evans</span> - Springfield
             </p>
-            <p className="text-gray-700 italic">
+            <p className="text-gray-700 italic dark:text-green-300">
               “A serene space filled with native wildflowers and sustainable
               practices.”
             </p>
@@ -34,7 +34,7 @@ export default function GardenOfTheMonth() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-green-50/80 w-full   md:w-[40%]   rounded-2xl  shadow-md ">
+      <section className="bg-green-50/80  w-full md:w-[40%] rounded-2xl shadow-md">
         <FAQSection />
       </section>
     </div>
@@ -67,21 +67,24 @@ function FAQSection() {
   };
 
   return (
-    <section className=" p-6 bg-green-50/80  rounded-2xl shadow-md my-10 mb-10">
-      <h2 className="text-2xl font-bold text-green-800 mb-4">
+    <section className="p-6 bg-green-50/80  rounded-2xl shadow-md my-10 mb-10">
+      <h2 className="text-2xl font-bold text-[#22461b] dark:text-[#22461b] mb-4">
         🌼 Frequently Asked Questions
       </h2>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
-          <div key={index} className="border rounded-lg overflow-hidden">
+          <div
+            key={index}
+            className="border rounded-lg overflow-hidden border-green-300 dark:border-green-700"
+          >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full text-left px-4 py-3 font-medium bg-green-100 hover:bg-green-200 focus:outline-none"
+              className="w-full text-[#22461b] dark:text-[#22461b] text-left px-4 py-3 font-medium bg-green-50  hover:bg-green-200  focus:outline-none"
             >
               {faq.question}
             </button>
             {openIndex === index && (
-              <div className="px-4 py-3 text-gray-700 bg-green-50">
+              <div className="px-4 py-3 text-[#22461b] dark:text-[#a7d29c] bg-green-50 ">
                 {faq.answer}
               </div>
             )}
