@@ -12,6 +12,7 @@ import TipsdetailsLayout from '../Layouts/TipsdetailsLayout';
 import MytipLayout from '../Layouts/MytipLayout';
 import TipsUpdateLayout from '../Layouts/TipsUpdateLayout';
 import ExploreGardener from '../Layouts/ExploreGardener';
+import Error from '../Components/Error';
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
     path:'/Explore-Gardeners',
     loader:()=>fetch('http://localhost:3000/users'),
     element:<ExploreGardener></ExploreGardener>
+  },
+  {
+    path:"*",
+    element:<Error></Error>
   }
   
 ]);
