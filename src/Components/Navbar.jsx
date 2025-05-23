@@ -57,6 +57,12 @@ const Navbar = () => {
           >
            My Tips page
           </NavLink>
+          <NavLink
+            className="font-semibold hover:text-primary mr-2.5 p-3 rounded-xl"
+            to="/Explore-Gardeners"
+          >
+           Explore Gardeners
+          </NavLink>
         </ul>
       </div>
 
@@ -86,6 +92,7 @@ const Navbar = () => {
             <NavLink to="/Share-Garden-tip"> Share a Garden Tip</NavLink>
             <NavLink to="/Browse-Garden-tip"> Browse Tips</NavLink>
             <NavLink to="/My-Tips-page"> My Tips page</NavLink>
+            <NavLink to="/Explore-Gardeners"> Explore Gardeners</NavLink>
             
 
             <li className="flex items-center">
