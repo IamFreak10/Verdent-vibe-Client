@@ -1,27 +1,31 @@
-// TipSwiper.jsx
 import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FaHeart } from 'react-icons/fa';
+import { FaEye, FaHeart, FaUser } from 'react-icons/fa';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import Type from './Type';
+import { useNavigate } from 'react-router';
 
 const TipSwiper = () => {
+  const navigate = useNavigate();
   const [stips, setStips] = useState([]);
+
   useEffect(() => {
-    fetch('http://localhost:3000/sixtips')
+    fetch('http://localhost:3000/tips')
       .then((res) => res.json())
       .then((data) => setStips(data));
   }, []);
-  console.log(stips);
+
+  stips.sort((a, b) => b.like - a.like);
+
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-    <Type></Type>
+    <div className="max-w-6xl mx-auto px-4 py-12">
+      <Type />
       <Swiper
         modules={[Pagination, Navigation]}
-        spaceBetween={30}
+        spaceBetween={24}
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
@@ -31,24 +35,54 @@ const TipSwiper = () => {
           1024: { slidesPerView: 3 },
         }}
       >
-        {stips.map((tip) => (
-          <SwiperSlide key={tip.id}>
-            <div className="card bg-base-100 shadow-xl">
+        {stips.slice(0, 6).map((tip) => (
+          <SwiperSlide key={tip._id}>
+            <div className="card mb-8 bg-white shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+              {/* Header */}
+              <div className="flex items-center gap-3 p-4 border-b bg-gray-50">
+                <FaUser className="text-gray-400 text-xl" />
+                <div>
+                  <h3 className="text-sm font-bold text-gray-800 dark:text-white">
+                    {tip.userName || 'User'}
+                  </h3>
+                  <p className="text-xs text-gray-500">{tip.category}</p>
+                </div>
+              </div>
+
+              {/* Image */}
               <figure>
                 <img
-                  src={tip.image}
+                  src={tip.imageUrl}
                   alt={tip.title}
-                  className="h-48 w-full object-cover"
+                  className="w-full h-48 object-cover"
                 />
               </figure>
-              <div className="card-body">
-                <h2 className="card-title text-primary">{tip.title}</h2>
-                <p>{tip.description}</p>
-                <div className="flex justify-between items-center mt-4">
-                  <span className="badge badge-success">{tip.category}</span>
-                  <span className="flex items-center text-gray-500 gap-1">
-                    <FaHeart className="text-red-500" /> {tip.likes}
+
+              {/* Body */}
+              <div className="card-body px-4 pt-4 pb-2 h-36 overflow-hidden">
+                <h2 className="text-lg font-semibold text-gray-800">
+                  {tip.title}
+                </h2>
+                <p className="text-sm text-gray-600 line-clamp-3">
+                  {tip.description}
+                </p>
+              </div>
+
+              {/* Footer */}
+              <div className="flex justify-between items-center px-4 py-3 border-t text-sm bg-gray-50">
+                <span className="badge badge-outline badge-success">
+                  {tip.category}
+                </span>
+                <div className="flex items-center gap-2">
+                  <span className="flex items-center text-gray-600 gap-1">
+                    <FaHeart className="text-red-500 text-xl" /> {tip.like}
                   </span>
+                  <button
+                    onClick={() => navigate(`/tip/${tip._id}`)}
+                    className="btn  btn-outline btn-primary flex items-center gap-1"
+                  >
+                    <FaEye /> View
+                  </button>
                 </div>
               </div>
             </div>

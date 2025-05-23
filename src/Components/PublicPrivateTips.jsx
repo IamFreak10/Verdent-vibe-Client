@@ -75,10 +75,10 @@ const PublicPrivateTips = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody className="bg-base-100/40">
+          <tbody className="bg-green-50/40 ">
             {filteredTips.length > 0 ? (
               filteredTips.map((tip, index) => (
-                <tr key={tip._id} className="hover text-[#22461b]">
+                <tr key={tip._id} className="hover  text-[#22461b] ">
                   <td>{index + 1}</td>
                   <td>
                     <div className="w-16 h-16">
@@ -95,7 +95,7 @@ const PublicPrivateTips = () => {
                   <td>
                     <button
                       onClick={() => navigate(`/tip/${tip._id}`)}
-                      className="btn btn-sm btn-outline btn-primary flex items-center gap-1"
+                      className="btn btn-sm btn-outline btn-primary dark:btn-accent flex items-center gap-1"
                     >
                       <FaEye /> See More
                     </button>

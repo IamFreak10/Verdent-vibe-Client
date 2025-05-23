@@ -5,7 +5,7 @@ import { XCircle } from 'lucide-react';
 
 const Error = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+    <div className="flex items-center justify-center min-h-screen bg-green-50/60 px-4">
       {' '}
       <div className="text-center bg-white p-10 rounded-2xl shadow-xl max-w-lg w-full">
         {' '}

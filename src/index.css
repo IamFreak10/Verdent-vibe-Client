@@ -1,22 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 @import "tailwindcss";
-@plugin "daisyui";
 
+@plugin "daisyui";
 * {
   font-family: "Poetsen One", sans-serif;
 }
 
-/* CUSTOMIZED COLOUR */
+
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #1d611d;   /* Dark green */
-  --color-secondary: #4caf50; /* Medium green */
-  --color-base-200: #d8f5d8;  /* Light minty green */
-  --color-base-300: #b7e4b7;  /* Soft pastel green */
-  --color-accent: #6b8e23;    /* Olive green */
+  --color-primary: #1d611d;  
+  --color-secondary: #4caf50; 
+  --color-base-200: #d8f5d8;  
+  --color-base-300: #b7e4b7;  
+  --color-accent: #6b8e23;    
+  
 }
-a.active {
-  color: #1d611d;
-}
-
+ 

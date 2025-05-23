@@ -34,7 +34,7 @@ const GardenTipForm = () => {
   return (
     <section className="max-w-3xl   mx-auto my-8 px-4 sm:px-6 lg:px-8">
       <div className="bg-white p-6 rounded-2xl shadow-xl border border-green-100">
-        <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6 flex items-center gap-2">
+        <h2 className="text-2xl sm:text-3xl font-bold text-[#1d611d] mb-6 flex items-center gap-2">
           <FaSeedling /> Share a Gardening Tip
         </h2>
 

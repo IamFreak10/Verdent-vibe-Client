@@ -1,18 +1,18 @@
 import React from 'react';
 import Navbar from '../Components/Navbar';
 import Video from '../Components/Video';
-import PublicPrivateTips from '../Components/PublicPrivateTips';
+import Error from '../Components/Error';
 import Footer from '../Components/Footer';
 
-const BrowseTip = () => {
+const ErrorLayout = () => {
   return (
     <>
       <Navbar></Navbar>
       <Video></Video>
-      <PublicPrivateTips></PublicPrivateTips>
+      <Error></Error>
       <Footer></Footer>
     </>
   );
 };
 
-export default BrowseTip;
+export default ErrorLayout;

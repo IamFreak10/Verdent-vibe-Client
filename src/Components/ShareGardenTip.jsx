@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import Video from './Video';
 import GardenTipForm from './GardenTipForm';
+import Footer from './Footer';
 
 const ShareGardenTip = () => {
   return (
@@ -11,6 +12,7 @@ const ShareGardenTip = () => {
       <div>
         <GardenTipForm></GardenTipForm>
       </div>
+      <Footer></Footer>
     </>
   );
 };

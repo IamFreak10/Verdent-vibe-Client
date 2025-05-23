@@ -10,6 +10,7 @@ import BouncingTex from '../Components/BouncingText/BouncingTex';
 
 import TipSwiper from '../Components/TipSwiper';
 import GardenOfTheMonth from '../Components/GardenOfTheMonth';
+import Footer from '../Components/Footer';
 
 
 const HomeLayout = () => {
@@ -22,6 +23,7 @@ const HomeLayout = () => {
       <TipSwiper></TipSwiper>
       <GardenOfTheMonth></GardenOfTheMonth>
       <Outlet></Outlet>
+      <Footer></Footer>
     </div>
   );
 };

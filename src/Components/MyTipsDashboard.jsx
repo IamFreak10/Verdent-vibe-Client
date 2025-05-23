@@ -53,14 +53,14 @@ const MyTipsDashboard = () => {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <h2 className="text-3xl font-bold mb-6 text-[#22461b] text-center">
+      <h2 className="text-3xl font-bold mb-6 text-[#326e26] text-center">
         My Gardening Tips
       </h2>
 
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
-            <tr className="bg-base-200 text-base font-semibold text-[#22461b]">
+            <tr className="bg-base-200 text-base font-semibold text-[#326e26]">
               <th>No.</th>
               <th>Image</th>
               <th>Title</th>
@@ -68,7 +68,7 @@ const MyTipsDashboard = () => {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody className="bg-base-100/40">
+          <tbody className="bg-green-100/40">
             {myTips.length > 0 ? (
               myTips.map((tip, index) => (
                 <tr key={tip._id} className="hover text-[#22461b]">
@@ -99,7 +99,11 @@ const MyTipsDashboard = () => {
                       onClick={() => navigate(`/update-tip/${tip._id}`)}
                       className="btn btn-sm btn-outline btn-warning flex items-center gap-1"
                     >
-                      <FaEdit /> Update
+                      <span className="text-[#22461b] flex items-center">
+                        {' '}
+                        <FaEdit />
+                        Update
+                      </span>
                     </button>
                     <button
                       onClick={() => handleDelete(tip._id)}

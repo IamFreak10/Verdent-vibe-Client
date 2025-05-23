@@ -1,7 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 import HomeLayout from '../Layouts/HomeLayout';
 
-import Gardeners from '../Components/Gardeners';
 import AuthLayout from '../Layouts/AuthLayout';
 import LoginLayout from '../Components/LoginLayout';
 import Registration from '../Components/Registration';
@@ -13,17 +12,12 @@ import MytipLayout from '../Layouts/MytipLayout';
 import TipsUpdateLayout from '../Layouts/TipsUpdateLayout';
 import ExploreGardener from '../Layouts/ExploreGardener';
 import Error from '../Components/Error';
+import ErrorLayout from '../Layouts/ErrorLayout';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <HomeLayout></HomeLayout>,
-    children: [
-      {
-        index: true,
-        element: <Gardeners></Gardeners>,
-      },
-    ],
   },
   {
     path: '/authentication',
@@ -70,20 +64,21 @@ const router = createBrowserRouter([
   },
   {
     path: '/update-tip/:id',
-    loader:({params})=>fetch(`http://localhost:3000/tips/${params.id}`),
-    element: <PrivateRoute>
-      <TipsUpdateLayout></TipsUpdateLayout>
-    </PrivateRoute>
+    loader: ({ params }) => fetch(`http://localhost:3000/tips/${params.id}`),
+    element: (
+      <PrivateRoute>
+        <TipsUpdateLayout></TipsUpdateLayout>
+      </PrivateRoute>
+    ),
   },
   {
-    path:'/Explore-Gardeners',
-    loader:()=>fetch('http://localhost:3000/users'),
-    element:<ExploreGardener></ExploreGardener>
+    path: '/Explore-Gardeners',
+    loader: () => fetch('http://localhost:3000/users'),
+    element: <ExploreGardener></ExploreGardener>,
   },
   {
-    path:"*",
-    element:<Error></Error>
-  }
-  
+    path: '*',
+    element: <ErrorLayout></ErrorLayout>,
+  },
 ]);
 export default router;

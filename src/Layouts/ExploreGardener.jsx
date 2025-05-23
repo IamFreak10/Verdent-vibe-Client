@@ -3,6 +3,7 @@ import Navbar from '../Components/Navbar';
 import { useLoaderData } from 'react-router';
 import Video from '../Components/Video';
 import GardenerCard from '../Components/GardenerCard';
+import Footer from '../Components/Footer';
 
 const ExploreGardener = () => {
     const users=useLoaderData();
@@ -16,6 +17,7 @@ const ExploreGardener = () => {
             users.map(user=><GardenerCard key={user.id} user={user}></GardenerCard>)
         }
         </div>
+        <Footer></Footer>
         
         </>
     );
