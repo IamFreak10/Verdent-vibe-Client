@@ -1,8 +1,17 @@
 import ActiveUserCard from './ActiveUserCard';
 import { TbMarquee } from 'react-icons/tb';
 import Marquee from 'react-fast-marquee';
+import { useEffect, useState } from 'react';
 
-const ActiveUser = ({ users }) => {
+const ActiveUser = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('https://b11a10-server-side-iamfreak-production.up.railway.app/users')
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+
   const filterUser = users.filter((user) => user.active === true);
   return (
     <div className="mt-5 mb-5 mx-auto max-w-[90%]  ">

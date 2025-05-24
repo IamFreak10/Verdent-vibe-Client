@@ -14,16 +14,19 @@ const UpdateTip = ({ data }) => {
     const form = e.target;
     const formData = new FormData(form);
     const newTip = Object.fromEntries(formData.entries());
-   
+
     const finalTip = { ...newTip, like };
-    
-    fetch(`https://b11a10-server-side-iam-freak10.vercel.app/tips/${_id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(finalTip),
-    })
+
+    fetch(
+      `https://b11a10-server-side-iamfreak-production.up.railway.app/tips/${_id}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(finalTip),
+      }
+    )
       .then((res) => res.json())
       .then(() => {
         Swal.fire({

@@ -11,7 +11,7 @@ const PublicPrivateTips = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://b11a10-server-side-iam-freak10.vercel.app/tips')
+    fetch('https://b11a10-server-side-iamfreak-production.up.railway.app//tips')
       .then((res) => res.json())
       .then((data) => {
         if (user) {

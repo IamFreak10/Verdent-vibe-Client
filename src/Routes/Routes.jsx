@@ -17,8 +17,7 @@ import ErrorLayout from '../Layouts/ErrorLayout';
 const router = createBrowserRouter([
   {
     path: '/',
-    loader: () =>
-      fetch('https://b11a10-server-side-iam-freak10.vercel.app/users'),
+
     element: <HomeLayout></HomeLayout>,
   },
   {
@@ -51,7 +50,7 @@ const router = createBrowserRouter([
     path: '/tip/:id',
     loader: ({ params }) =>
       fetch(
-        `https://b11a10-server-side-iam-freak10.vercel.app/tips/${params.id}`
+        `https://b11a10-server-side-iamfreak-production.up.railway.app/tips/${params.id}`
       ),
     element: (
       <PrivateRoute>
@@ -71,7 +70,7 @@ const router = createBrowserRouter([
     path: '/update-tip/:id',
     loader: ({ params }) =>
       fetch(
-        `https://b11a10-server-side-iam-freak10.vercel.app/tips/${params.id}`
+        `https://b11a10-server-side-iamfreak-production.up.railway.app//tips/${params.id}`
       ),
     element: (
       <PrivateRoute>
@@ -82,7 +81,7 @@ const router = createBrowserRouter([
   {
     path: '/Explore-Gardeners',
     loader: () =>
-      fetch('https://b11a10-server-side-iam-freak10.vercel.app/users'),
+      fetch('https://b11a10-server-side-iamfreak-production.up.railway.app/users'),
     element: <ExploreGardener></ExploreGardener>,
   },
   {
