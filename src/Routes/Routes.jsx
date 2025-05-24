@@ -17,6 +17,8 @@ import ErrorLayout from '../Layouts/ErrorLayout';
 const router = createBrowserRouter([
   {
     path: '/',
+    loader: () =>
+      fetch('https://b11a10-server-side-iam-freak10.vercel.app/users'),
     element: <HomeLayout></HomeLayout>,
   },
   {

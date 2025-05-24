@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useLoaderData } from 'react-router';
 
 import Navbar from '../Components/Navbar';
 import GardeningEventSlider from '../Components/GardeningEventSlider';
@@ -14,12 +14,13 @@ import Footer from '../Components/Footer';
 
 
 const HomeLayout = () => {
+  const users = useLoaderData();
   return (
     <div>
       <Navbar></Navbar>
       <Video></Video>
       <GardeningEventSlider></GardeningEventSlider>
-      <BouncingTex></BouncingTex>
+      <BouncingTex users={users}></BouncingTex>
       <TipSwiper></TipSwiper>
       <GardenOfTheMonth></GardenOfTheMonth>
       <Outlet></Outlet>

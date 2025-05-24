@@ -7,7 +7,7 @@ import { use } from 'react';
 import Authcontext from '../Contexts/Authcontext';
 const Navbar = () => {
   const { user, logOut } = use(Authcontext);
-  console.log(user?.photoURL);
+ 
   const handleLogout = () => {
     logOut().then().catch();
   };
@@ -107,7 +107,7 @@ const Navbar = () => {
                 <FaSignOutAlt className="mr-2" /> Logout
               </Link>
             ) : (
-              
+
               <Link
                 className="btn btn-primary px-10"
                 to={'/authentication/login'}

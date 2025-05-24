@@ -14,9 +14,9 @@ const UpdateTip = ({ data }) => {
     const form = e.target;
     const formData = new FormData(form);
     const newTip = Object.fromEntries(formData.entries());
-    console.log(like);
+   
     const finalTip = { ...newTip, like };
-    console.log(finalTip);
+    
     fetch(`https://b11a10-server-side-iam-freak10.vercel.app/tips/${_id}`, {
       method: 'PUT',
       headers: {
