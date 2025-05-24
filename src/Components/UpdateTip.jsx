@@ -17,7 +17,7 @@ const UpdateTip = ({ data }) => {
     console.log(like);
     const finalTip = { ...newTip, like };
     console.log(finalTip);
-    fetch(`http://localhost:3000/tips/${_id}`, {
+    fetch(`https://b11a10-server-side-iam-freak10.vercel.app/tips/${_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

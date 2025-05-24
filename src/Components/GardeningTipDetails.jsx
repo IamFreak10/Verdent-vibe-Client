@@ -26,7 +26,7 @@ const GardeningTipDetails = ({ tip }) => {
     setLiked(true);
 
     // Update to backend
-    fetch(`http://localhost:3000/tips/${_id}`, {
+    fetch(`https://b11a10-server-side-iam-freak10.vercel.app/tips/${_id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ like: likesCount + 1 }),

@@ -47,7 +47,10 @@ const router = createBrowserRouter([
   },
   {
     path: '/tip/:id',
-    loader: ({ params }) => fetch(`http://localhost:3000/tips/${params.id}`),
+    loader: ({ params }) =>
+      fetch(
+        `https://b11a10-server-side-iam-freak10.vercel.app/tips/${params.id}`
+      ),
     element: (
       <PrivateRoute>
         <TipsdetailsLayout></TipsdetailsLayout>
@@ -64,7 +67,10 @@ const router = createBrowserRouter([
   },
   {
     path: '/update-tip/:id',
-    loader: ({ params }) => fetch(`http://localhost:3000/tips/${params.id}`),
+    loader: ({ params }) =>
+      fetch(
+        `https://b11a10-server-side-iam-freak10.vercel.app/tips/${params.id}`
+      ),
     element: (
       <PrivateRoute>
         <TipsUpdateLayout></TipsUpdateLayout>
@@ -73,7 +79,8 @@ const router = createBrowserRouter([
   },
   {
     path: '/Explore-Gardeners',
-    loader: () => fetch('http://localhost:3000/users'),
+    loader: () =>
+      fetch('https://b11a10-server-side-iam-freak10.vercel.app/users'),
     element: <ExploreGardener></ExploreGardener>,
   },
   {

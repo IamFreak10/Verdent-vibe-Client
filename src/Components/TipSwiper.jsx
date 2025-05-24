@@ -13,7 +13,7 @@ const TipSwiper = () => {
   const [stips, setStips] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/tips')
+    fetch('https://b11a10-server-side-iam-freak10.vercel.app/tips')
       .then((res) => res.json())
       .then((data) => setStips(data));
   }, []);

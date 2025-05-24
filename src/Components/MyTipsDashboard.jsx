@@ -11,7 +11,7 @@ const MyTipsDashboard = () => {
 
   useEffect(() => {
     if (user) {
-      fetch('http://localhost:3000/tips')
+      fetch('https://b11a10-server-side-iam-freak10.vercel.app/tips')
         .then((res) => res.json())
         .then((data) => {
           const userTips = data.filter((tip) => tip.email === user.email);
@@ -31,7 +31,7 @@ const MyTipsDashboard = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/tips/${id}`, {
+        fetch(`https://b11a10-server-side-iam-freak10.vercel.app/tips/${id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())

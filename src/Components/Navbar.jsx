@@ -55,13 +55,13 @@ const Navbar = () => {
             className="font-semibold hover:text-primary mr-2.5 p-3 rounded-xl"
             to="/My-Tips-page"
           >
-           My Tips page
+            My Tips page
           </NavLink>
           <NavLink
             className="font-semibold hover:text-primary mr-2.5 p-3 rounded-xl"
             to="/Explore-Gardeners"
           >
-           Explore Gardeners
+            Explore Gardeners
           </NavLink>
         </ul>
       </div>
@@ -93,7 +93,6 @@ const Navbar = () => {
             <NavLink to="/Browse-Garden-tip"> Browse Tips</NavLink>
             <NavLink to="/My-Tips-page"> My Tips page</NavLink>
             <NavLink to="/Explore-Gardeners"> Explore Gardeners</NavLink>
-            
 
             <li className="flex items-center">
               <div className="avatar mr-2">
@@ -103,9 +102,19 @@ const Navbar = () => {
               </div>
               {user?.displayName}
             </li>
-            <Link className="btn btn-primary px-10">
-              <FaSignOutAlt className="mr-2" /> Logout
-            </Link>
+            {user ? (
+              <Link onClick={handleLogout} className="btn btn-primary px-10">
+                <FaSignOutAlt className="mr-2" /> Logout
+              </Link>
+            ) : (
+              
+              <Link
+                className="btn btn-primary px-10"
+                to={'/authentication/login'}
+              >
+                <FaSignInAlt className="mr-2" /> Login
+              </Link>
+            )}
           </ul>
         </div>
       </div>

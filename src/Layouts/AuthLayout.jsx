@@ -5,15 +5,20 @@ import Video from '../Components/Video';
 import Footer from '../Components/Footer';
 
 const AuthLayout = () => {
-    return (
-        <div>
-            <Navbar></Navbar>
-            <Video></Video>
-            <Outlet></Outlet>
-            <Footer></Footer>
-            
-        </div>
-    );
+  return (
+   
+
+    <div>
+      <Navbar></Navbar>
+      <div className="min-h-screen flex flex-col">
+        <main className="flex-grow">
+          <Video></Video>
+          <Outlet></Outlet>
+        </main>
+        <Footer />
+      </div>
+    </div>
+  );
 };
 
 export default AuthLayout;
