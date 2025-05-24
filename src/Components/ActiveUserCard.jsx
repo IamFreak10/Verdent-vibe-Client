@@ -30,7 +30,7 @@ specialty
       {/* Info */}
       <div className="card-body p-2 text-xs h-1/2 justify-evenly">
         {/* Name */}
-        <h3 className="text-center font-semibold text-gray-800">{name}</h3>
+        <h3 className="text-center font-semibold text-[#4ca83a] ">{name}</h3>
 
         <div className="flex items-center gap-1 text-gray-600">
           <FaMapMarkerAlt className="text-green-600" />

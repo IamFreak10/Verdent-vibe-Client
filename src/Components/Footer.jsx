@@ -8,17 +8,14 @@ const Footer = () => {
   const activeStyle = 'font-semibold underline text-secondary';
 
   return (
-    <footer className="bg-green-100/60 py-8 p-10 rounded-t-2xl shadow-inner  bg-image text-[#22461b] ">
+    <footer className="bg-green-100/60 py-8 p-10 rounded-t-2xl shadow-inner bg-image text-[#22461b]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Company Info */}
         <div>
           <div className="flex text-xl font-bold mb-2 items-center">
-            <a className="   relative flex justify-start">
-              {/* Image behind text */}
-              <img src={logo} alt="" className="absolute w-12  z-0" />
-
-              {/* Text in front */}
-              <span className="mt-3 ml-8 relative z-10 text-xl  md:text-3xl text-primary">
+            <a className="relative flex justify-start">
+              <img src={logo} alt="" className="absolute w-12 z-0" />
+              <span className="mt-3 ml-8 relative z-10 text-xl md:text-3xl text-[#22461b]">
                 ERDENT VIBE
               </span>
             </a>
@@ -29,13 +26,13 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Nav Links */}
+        {/* Nav + Contact */}
         <div>
-          <h3 className="text-lg font-semibold mb-2">Legal</h3>
-          <ul className="space-y-1 text-sm">
+          <h3 className="text-lg font-semibold mb-2">Legal & Contact</h3>
+          <ul className="space-y-2 text-sm">
             <li>
               <NavLink
-                to="/TermsPrivacySupport/terms"
+                to="/terms-and-conditions"
                 className={({ isActive }) =>
                   `link link-hover ${isActive ? activeStyle : ''}`
                 }
@@ -43,25 +40,25 @@ const Footer = () => {
                 Terms & Conditions
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/TermsPrivacySupport/privacy"
-                className={({ isActive }) =>
-                  `link link-hover ${isActive ? activeStyle : ''}`
-                }
-              >
-                Privacy Policy
-              </NavLink>
+            <li className="flex items-center space-x-2">
+              <FaGlobe className="w-4 h-4 text-green-700" />
+              <span>Phone: +1 (555) 123 4567</span>
             </li>
-            <li>
-              <NavLink
-                to="/TermsPrivacySupport/support"
-                className={({ isActive }) =>
-                  `link link-hover ${isActive ? activeStyle : ''}`
-                }
-              >
-                Customer Support
-              </NavLink>
+            <li className="flex items-center space-x-2">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/124/124012.png"
+                alt="WhatsApp"
+                className="w-4 h-4"
+              />
+              <span>WhatsApp: +1 (555) 901 2345</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="font-semibold">Help Desk:</span>
+              <span>+1 (800) 111 2222</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="font-semibold">Support Line:</span>
+              <span>+1 (800) 333 4444</span>
             </li>
           </ul>
         </div>

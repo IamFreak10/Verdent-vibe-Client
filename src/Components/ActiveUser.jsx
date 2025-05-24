@@ -14,7 +14,7 @@ const ActiveUser = () => {
 
   const filterUser = users.filter((user) => user.active === true);
   return (
-    <div className="mt-5 mb-5 mx-auto max-w-[90%]  ">
+    <div className="mt-5 mb-5  max-w-[90%]  ">
       <Marquee speed={50} gradient={false} direction="right">
         <div className="flex  gap-5 mr-4 ">
           {filterUser.map((user) => (

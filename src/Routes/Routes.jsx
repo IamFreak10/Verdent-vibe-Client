@@ -11,8 +11,10 @@ import TipsdetailsLayout from '../Layouts/TipsdetailsLayout';
 import MytipLayout from '../Layouts/MytipLayout';
 import TipsUpdateLayout from '../Layouts/TipsUpdateLayout';
 import ExploreGardener from '../Layouts/ExploreGardener';
-import Error from '../Components/Error';
+
 import ErrorLayout from '../Layouts/ErrorLayout';
+import Terms from '../Layouts/Terms';
+
 
 const router = createBrowserRouter([
   {
@@ -70,7 +72,7 @@ const router = createBrowserRouter([
     path: '/update-tip/:id',
     loader: ({ params }) =>
       fetch(
-        `https://b11a10-server-side-iamfreak-production.up.railway.app//tips/${params.id}`
+        `https://b11a10-server-side-iamfreak-production.up.railway.app/tips/${params.id}`
       ),
     element: (
       <PrivateRoute>
@@ -81,9 +83,16 @@ const router = createBrowserRouter([
   {
     path: '/Explore-Gardeners',
     loader: () =>
-      fetch('https://b11a10-server-side-iamfreak-production.up.railway.app/users'),
+      fetch(
+        'https://b11a10-server-side-iamfreak-production.up.railway.app/users'
+      ),
     element: <ExploreGardener></ExploreGardener>,
   },
+  {
+    path: '/terms-and-conditions',
+    element: <Terms></Terms>,
+  },
+
   {
     path: '*',
     element: <ErrorLayout></ErrorLayout>,

@@ -1,64 +1,97 @@
+import { useContext } from 'react';
 import { FaUserCircle, FaSignOutAlt, FaSignInAlt } from 'react-icons/fa';
-import { GiCircularSawblade } from 'react-icons/gi';
 import { Link, NavLink } from 'react-router';
 import ThemeToggle from './ThemeToggle';
 import logo from '../assets/abstract-removebg-preview.png';
-import { use } from 'react';
 import Authcontext from '../Contexts/Authcontext';
+import Swal from 'sweetalert2';
+
 const Navbar = () => {
-  const { user, logOut } = use(Authcontext);
- 
+  const { user, logOut } = useContext(Authcontext);
+
   const handleLogout = () => {
-    logOut().then().catch();
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger',
+      },
+      buttonsStyling: false,
+    });
+    swalWithBootstrapButtons
+      .fire({
+        title: 'Are you sure to logout?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, logout!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          logOut();
+          swalWithBootstrapButtons.fire({
+            title: '',
+            text: 'You have logged out successfully',
+            icon: 'success',
+          });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire({
+            title: 'Cancelled',
+            text: 'You have not logged out :)',
+            icon: 'error',
+          });
+        }
+      });
   };
 
   return (
-    <div className="navbar sticky top-0 z-50 bg-base-100  shadow-md px-4">
+    <div className="navbar sticky top-0 z-50 bg-base-100 shadow-md px-4 md:px-8">
       {/* Start */}
-
-      <div className="flex-1 ">
-        <a className="   relative flex justify-start">
-          {/* Image behind text */}
+      <div className="flex-1">
+        <Link className="relative flex justify-start" to="/">
           <img src={logo} alt="" className="absolute w-12 opacity-70 z-0" />
-
-          {/* Text in front */}
-          <span className="mt-3 ml-8 relative z-10 text-xl  md:text-3xl text-primary">
+          <span className="mt-3 ml-8 relative z-10 text-xl md:text-3xl text-[#22461b]">
             ERDENT VIBE
           </span>
-        </a>
+        </Link>
       </div>
 
-      <ThemeToggle></ThemeToggle>
+      {/* Theme Toggle */}
+      <ThemeToggle />
 
       {/* Center Nav Links */}
       <div className="hidden lg:flex">
         <ul className="menu menu-horizontal">
           <NavLink
-            className="font-semibold hover:text-primary mr-2.5 p-3 rounded-xl"
+            className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
             to="/"
           >
             Home
           </NavLink>
           <NavLink
-            className="font-semibold hover:text-primary mr-2.5 p-3 rounded-xl"
+            className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
             to="/Share-Garden-tip"
           >
             Share a Garden Tip
           </NavLink>
           <NavLink
-            className="font-semibold hover:text-primary mr-2.5 p-3 rounded-xl"
+            className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
             to="/Browse-Garden-tip"
           >
             Browse Tips
           </NavLink>
           <NavLink
-            className="font-semibold hover:text-primary mr-2.5 p-3 rounded-xl"
+            className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
             to="/My-Tips-page"
           >
             My Tips page
           </NavLink>
           <NavLink
-            className="font-semibold hover:text-primary mr-2.5 p-3 rounded-xl"
+            className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
             to="/Explore-Gardeners"
           >
             Explore Gardeners
@@ -107,7 +140,6 @@ const Navbar = () => {
                 <FaSignOutAlt className="mr-2" /> Logout
               </Link>
             ) : (
-
               <Link
                 className="btn btn-primary px-10"
                 to={'/authentication/login'}
@@ -122,29 +154,29 @@ const Navbar = () => {
       {/* Desktop Right Side */}
       <div className="hidden lg:flex items-center gap-4 ml-4">
         {user ? (
-          <>
-            <div
-              className="tooltip tooltip-bottom"
-              data-tip={user?.displayName}
-            >
-              <div className="avatar">
-                <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                  <img src={user?.photoURL} alt="User" />
-                </div>
+          <div className="relative flex items-center gap-2 group">
+            <div className="avatar cursor-pointer">
+              <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img src={user?.photoURL} alt="User" />
               </div>
             </div>
-            <Link onClick={handleLogout} className="btn btn-primary px-10">
-              <FaSignOutAlt className="mr-2" /> Logout
-            </Link>
-          </>
+
+            <button
+              onClick={handleLogout}
+              className="absolute top-10 left-1 -translate-x-1/2 btn btn-primary px-5 text-white transition duration-200 z-10 opacity-0 group-hover:opacity-100"
+            >
+              <FaSignOutAlt className="inline mr-1" /> Logout
+            </button>
+          </div>
         ) : (
           <>
-            <FaUserCircle className="text-4xl" />
-
             <Link
               className="btn btn-primary px-10"
-              to={'/authentication/login'}
+              to="/authentication/registration"
             >
+              <FaSignInAlt className="mr-2" /> Register
+            </Link>
+            <Link className="btn btn-primary px-10" to="/authentication/login">
               <FaSignInAlt className="mr-2" /> Login
             </Link>
           </>

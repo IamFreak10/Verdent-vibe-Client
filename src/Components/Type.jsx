@@ -9,7 +9,7 @@ const Type = () => (
         '', 1000,                          
       ]}
       speed={50}
-      className="text-center font-bold text-primary"
+      className="text-center font-bold text-[#22461b]"
       style={{ fontSize: 'clamp(1.5rem, 2vw, 2.5rem)' }}
       repeat={Infinity}
     />

@@ -116,7 +116,7 @@ const MyTipsDashboard = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="5" className="text-center text-primary py-6">
+                <td colSpan="5" className="text-center  text-primary dark:text-[#22461b] py-6">
                   You haven't shared any tips yet.
                 </td>
               </tr>

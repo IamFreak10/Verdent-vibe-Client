@@ -37,12 +37,12 @@ const TipSwiper = () => {
       >
         {stips.slice(0, 6).map((tip) => (
           <SwiperSlide key={tip._id}>
-            <div className="card mb-8 bg-white shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+            <div className="card mb-8 bg-green-50/80 shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
               {/* Header */}
               <div className="flex items-center gap-3 p-4 border-b bg-gray-50">
                 <FaUser className="text-gray-400 text-xl" />
                 <div>
-                  <h3 className="text-sm font-bold text-gray-800 dark:text-white">
+                  <h3 className="text-sm font-bold  text-[#22461b]">
                     {tip.userName || 'User'}
                   </h3>
                   <p className="text-xs text-gray-500">{tip.category}</p>

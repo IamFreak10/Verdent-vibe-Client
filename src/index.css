@@ -6,15 +6,18 @@
   font-family: "Poetsen One", sans-serif;
 }
 
+@custom-variant light (&:where(.light, .light *));
 
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
   --color-primary: #1d611d;  
-  --color-secondary: #4caf50; 
+  --color-secondary: #22461b; 
   --color-base-200: #d8f5d8;  
-  --color-base-300: #b7e4b7;  
+  --color-base-300: #22461b;  
   --color-accent: #6b8e23;    
   
 }
- 
+a.active{
+  color: #22461b;
+}

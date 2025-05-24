@@ -1,9 +1,11 @@
 import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import Authcontext from '../Contexts/Authcontext';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const LoginLayout = () => {
   const { signIn, signInWithGoogle } = use(Authcontext);
+  const [showPassword, setShowPassword] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -55,8 +57,21 @@ const LoginLayout = () => {
               placeholder="Password"
               required
             />
-            <div>
-              <a className="link link-hover">Forgot password?</a>
+            <label className="label">Password</label>
+            <div className="relative">
+              <input
+                name="password"
+                type={showPassword ? 'text' : 'password'}
+                className="input  pr-10"
+                placeholder="Password"
+                required
+              />
+              <span
+                className="absolute top-1/2 right-6 transform -translate-y-1/2 cursor-pointer text-gray-500"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
+              </span>
             </div>
             {error && <p className="text-red-500">{error}</p>}
 
@@ -102,12 +117,6 @@ const LoginLayout = () => {
             <Link to={'/authentication/registration'}>
               <span className="text-blue-400">Register</span>
             </Link>
-          </p>
-          <p className="text-center">
-            Forgot Password?
-            <span className="text-blue-400 cursor-pointer">
-              Forget Password
-            </span>
           </p>
         </div>
       </div>

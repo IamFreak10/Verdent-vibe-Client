@@ -6,10 +6,10 @@ import Authcontext from '../Contexts/Authcontext';
 import Swal from 'sweetalert2';
 
 const Registration = () => {
-  const { createUser, user, setUser, logOut, updateUser } = use(Authcontext);
+  const { createUser, setUser, logOut, updateUser } = use(Authcontext);
   const [errors, setErrors] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  console.log(errors);
+
   const handlesubmit = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -107,7 +107,7 @@ const Registration = () => {
                 className="absolute top-1/2 right-6 transform -translate-y-1/2 cursor-pointer text-gray-500"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
               </span>
             </div>
 
