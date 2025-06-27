@@ -15,7 +15,6 @@ import ExploreGardener from '../Layouts/ExploreGardener';
 import ErrorLayout from '../Layouts/ErrorLayout';
 import Terms from '../Layouts/Terms';
 
-
 const router = createBrowserRouter([
   {
     path: '/',
@@ -52,7 +51,7 @@ const router = createBrowserRouter([
     path: '/tip/:id',
     loader: ({ params }) =>
       fetch(
-        `https://b11a10-server-side-iamfreak-production.up.railway.app/tips/${params.id}`
+        `https://b11a10-server-side-iam-freak10.vercel.app/tips/${params.id}`
       ),
     element: (
       <PrivateRoute>
@@ -72,7 +71,7 @@ const router = createBrowserRouter([
     path: '/update-tip/:id',
     loader: ({ params }) =>
       fetch(
-        `https://b11a10-server-side-iamfreak-production.up.railway.app/tips/${params.id}`
+        `https://b11a10-server-side-iam-freak10.vercel.app/tips/${params.id}`
       ),
     element: (
       <PrivateRoute>
@@ -83,10 +82,13 @@ const router = createBrowserRouter([
   {
     path: '/Explore-Gardeners',
     loader: () =>
-      fetch(
-        'https://b11a10-server-side-iamfreak-production.up.railway.app/users'
-      ),
-    element: <ExploreGardener></ExploreGardener>,
+      fetch('https://b11a10-server-side-iam-freak10.vercel.app/users'),
+    element: (
+      <PrivateRoute>
+        {' '}
+        <ExploreGardener></ExploreGardener>
+      </PrivateRoute>
+    ),
   },
   {
     path: '/terms-and-conditions',

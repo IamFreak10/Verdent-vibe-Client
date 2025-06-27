@@ -7,7 +7,7 @@ const ActiveUser = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch('https://b11a10-server-side-iamfreak-production.up.railway.app/users')
+    fetch('https://b11a10-server-side-iam-freak10.vercel.app/users')
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

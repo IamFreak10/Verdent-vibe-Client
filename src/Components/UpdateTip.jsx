@@ -18,7 +18,7 @@ const UpdateTip = ({ data }) => {
     const finalTip = { ...newTip, like };
 
     fetch(
-      `https://b11a10-server-side-iamfreak-production.up.railway.app/tips/${_id}`,
+      `https://b11a10-server-side-iam-freak10.vercel.app/tips/${_id}`,
       {
         method: 'PUT',
         headers: {

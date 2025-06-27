@@ -5,10 +5,12 @@ import ThemeToggle from './ThemeToggle';
 import logo from '../assets/abstract-removebg-preview.png';
 import Authcontext from '../Contexts/Authcontext';
 import Swal from 'sweetalert2';
+import DashboardContext from '../Contexts/DashbordContext';
 
 const Navbar = () => {
   const { user, logOut } = useContext(Authcontext);
-
+  const { on, setOn } = useContext(DashboardContext);
+  console.log(on);
   const handleLogout = () => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -54,7 +56,7 @@ const Navbar = () => {
       <div className="flex-1">
         <Link className="relative flex justify-start" to="/">
           <img src={logo} alt="" className="absolute w-12 opacity-70 z-0" />
-          <span className="mt-3 ml-8 relative z-10 text-xl md:text-3xl text-[#22461b]">
+          <span className="mt-3 ml-8 relative z-10 text-xl md:text-3xl text-[#22461b]  ">
             ERDENT VIBE
           </span>
         </Link>
@@ -72,30 +74,60 @@ const Navbar = () => {
           >
             Home
           </NavLink>
-          <NavLink
-            className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
-            to="/Share-Garden-tip"
-          >
-            Share a Garden Tip
-          </NavLink>
+
           <NavLink
             className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
             to="/Browse-Garden-tip"
           >
-            Browse Tips
+            All Tips
           </NavLink>
-          <NavLink
+          <button
+            onClick={() => {
+              const footer = document.getElementById('site-footer');
+              footer?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
-            to="/My-Tips-page"
           >
-            My Tips page
-          </NavLink>
-          <NavLink
-            className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
-            to="/Explore-Gardeners"
-          >
-            Explore Gardeners
-          </NavLink>
+            About Us
+          </button>
+          {
+            user?.email?( <button
+                onClick={() => setOn(!on)}
+                className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+              >
+                Dashbord
+              </button>):(<></>)
+          }
+          {/* {user?.email ? (
+            <>
+              <NavLink
+                className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+                to="/Share-Garden-tip"
+              >
+                Share a Garden Tip
+              </NavLink>
+              <NavLink
+                className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+                to="/My-Tips-page"
+              >
+                My Tips page
+              </NavLink>
+              <NavLink
+                className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+                to="/Explore-Gardeners"
+              >
+                Explore Gardeners
+              </NavLink>
+              <button
+                onClick={() => setOn(!on)}
+                className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+              >
+                Dashbord
+              </button>
+            </>
+          ) : (
+            <></>
+          )} */}
         </ul>
       </div>
 
@@ -121,12 +153,60 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/Share-Garden-tip"> Share a Garden Tip</NavLink>
-            <NavLink to="/Browse-Garden-tip"> Browse Tips</NavLink>
-            <NavLink to="/My-Tips-page"> My Tips page</NavLink>
-            <NavLink to="/Explore-Gardeners"> Explore Gardeners</NavLink>
+            <div className='flex flex-col text-c' >
+              <NavLink
+                className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+                to="/"
+              >
+                Home
+              </NavLink>
 
+              <NavLink
+                className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+                to="/Browse-Garden-tip"
+              >
+                All Tips
+              </NavLink>
+              <button
+                onClick={() => {
+                  const footer = document.getElementById('site-footer');
+                  footer?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+              >
+                About Us
+              </button>
+              {/* {user?.email ? (
+                <>
+                  <NavLink
+                    className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+                    to="/Share-Garden-tip"
+                  >
+                    Share a Garden Tip
+                  </NavLink>
+                  <NavLink
+                    className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+                    to="/My-Tips-page"
+                  >
+                    My Tips page
+                  </NavLink>
+                  <NavLink
+                    className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+                    to="/Explore-Gardeners"
+                  >
+                    Explore Gardeners
+                  </NavLink>
+                  <button
+                    onClick={() => setOn(!on)}
+                    className="font-semibold  hover:text-[#22461b] mr-2.5 p-3 rounded-xl"
+                  >
+                    Dashbord
+                  </button>
+                </>
+              ) : (
+                <></>
+              )} */}
+            </div>
             <li className="flex items-center">
               <div className="avatar mr-2">
                 <div className="w-6 rounded-full">

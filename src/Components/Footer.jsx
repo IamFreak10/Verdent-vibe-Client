@@ -8,7 +8,7 @@ const Footer = () => {
   const activeStyle = 'font-semibold underline text-secondary';
 
   return (
-    <footer className="bg-green-100/60 py-8 p-10 rounded-t-2xl shadow-inner bg-image text-[#22461b]">
+    <footer id='site-footer' className="bg-green-100/60 py-8 p-10 rounded-t-2xl shadow-inner bg-image text-[#22461b]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Company Info */}
         <div>
